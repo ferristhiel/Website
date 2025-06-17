@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flip Card mit Blasen-Hintergrund</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background">
+    <!-- Blasen -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <!-- Flip Card -->
+    <div class="card-container">
+      <div class="card" id="card">
+        <div class="front">
+          <h1>Fylo</h1>
+          <button id="flipBtn">Starten</button>
+        </div>
+        <div class="back">
+          <h1>Anmelden</h1>
+          <form>
+            <input type="text" placeholder="Benutzername" required />
+            <input type="password" placeholder="Passwort" required />
+            <button type="submit">Login</button>
+          </form>
+          <button id="flipBackBtn">Zurück</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const card = document.getElementById('card');
+    const flipBtn = document.getElementById('flipBtn');
+    const flipBackBtn = document.getElementById('flipBackBtn');
+
+    flipBtn.addEventListener('click', () => {
+      card.classList.add('flipped');
+    });
+
+    flipBackBtn.addEventListener('click', () => {
+      card.classList.remove('flipped');
+    });
+  </script>
+</body>
+</html>

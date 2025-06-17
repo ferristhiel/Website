@@ -1,0 +1,170 @@
+/* --- Hintergrund & Zentrierung --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #0f2027; /* fallback */
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  overflow: hidden;
+}
+
+.background {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* --- Blasen --- */
+.bubble {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  box-shadow: inset 0 0 25px rgba(255, 255, 255, 0.25);
+  animation: animate_4010 8s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px #0fb4ff);
+  opacity: 0.3;
+}
+
+/* Position und Animation der einzelnen Blasen */
+.bubble:nth-child(1) {
+  left: 15%;
+  top: 20%;
+  animation-delay: 0s;
+  zoom: 1;
+}
+.bubble:nth-child(2) {
+  left: 30%;
+  top: 50%;
+  animation-delay: -4s;
+  zoom: 0.45;
+}
+.bubble:nth-child(3) {
+  right: 30%;
+  top: 10%;
+  animation-delay: -6s;
+  zoom: 0.45;
+}
+.bubble:nth-child(4) {
+  left: 10%;
+  bottom: 20%;
+  animation-delay: -3s;
+  zoom: 0.35;
+}
+.bubble:nth-child(5) {
+  right: 15%;
+  bottom: 10%;
+  animation-delay: -5s;
+  zoom: 0.5;
+}
+
+@keyframes animate_4010 {
+  0%, 100% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+/* --- Flip Card --- */
+.card-container {
+  perspective: 1500px;
+  z-index: 10;
+}
+
+.card {
+  width: 320px;
+  height: 420px;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  border-radius: 15px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  user-select: none;
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.front, .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 40px 30px;
+  box-sizing: border-box;
+  border-radius: 15px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  backface-visibility: hidden;
+}
+
+.front {
+  background: rgba(15, 32, 39, 0.8);
+}
+
+.back {
+  background: rgba(32, 58, 67, 0.85);
+  transform: rotateY(180deg);
+}
+
+/* Buttons */
+button {
+  margin-top: 30px;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 25px;
+  background: #0fb4ff;
+  color: white;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background: #089ddf;
+}
+
+/* Formular */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  margin-bottom: 20px;
+  padding: 12px 15px;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}
+
+input::placeholder {
+  color: #999;
+}
+
+h1 {
+  font-weight: 700;
+  margin: 0 0 20px;
+  font-size: 32px;
+  letter-spacing: 1.5px;
+}
